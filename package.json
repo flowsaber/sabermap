@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/g6": "^4.2.5",
+    "@antv/graphin": "^2.0.6",
+    "@antv/graphin-components": "^2.0.1",
+    "@antv/graphin-icons": "^1.0.0",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -39,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.3.0"
   }
 }
