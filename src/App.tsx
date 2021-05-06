@@ -9,7 +9,7 @@ import theme from "./panel/theme"
 
 
 function App() {
-  const [server, setServer ]= useState("http://127.0.0.1:8000/graphql")
+  const [server, setServer ]= useState("https://flowsaber.herokuapp.com/graphql")
   const client = new ApolloClient({
     uri: server,
     cache: new InMemoryCache()
