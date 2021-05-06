@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "#455064",
       borderRadius: "10%",
       textAlign: "center",
-      overflow: "scroll",
+      overflow: "hidden",
       display: "flex",
       flexDirection: 'column',
       alignItems: 'start',

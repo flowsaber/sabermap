@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       background: '#ff6f00',
       borderRadius: "10%",
       textAlign: "center",
-      overflow: "scroll",
+      overflow: "hidden",
       display: "flex",
       flexDirection: 'column',
       alignItems: 'start',
@@ -34,7 +34,7 @@ function OperatorNode(props) {
   
   return (
     <NodeWrapper {...props} isCircle={isCircle} className={classes.root} width={width} height={height}>
-      <Box width={"100%"} overflow={"scroll"}>
+      <Box width={"100%"} overflow={"hidden"}>
         <Typography>{label}</Typography>
       </Box>
     </NodeWrapper>

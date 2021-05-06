@@ -15,7 +15,7 @@ const useTaskRunsStyles = makeStyles((theme: Theme) =>
     root: {
       padding: "5px",
       width: "100%",
-      overflow: "scroll" ,
+      overflow: "hidden" ,
       flexWrap: "nowrap",
       justifyContent: "start",
       height: "80px", // any better way?
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: 0.8,
       borderRadius: "10%",
       textAlign: "center",
-      overflow: "scroll",
+      overflow: "hidden",
       display: "flex",
       flexDirection: 'column',
       alignItems: 'start',
