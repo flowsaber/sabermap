@@ -1,0 +1,117 @@
+.App {
+  text-align: center;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tensorsite-card {
+  flex-basis: 1;
+  flex-shrink: 0;
+  flex-grow: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: linear-gradient(to right, #ff6f00, #ff9100);
+  border-radius: 10px;
+  box-shadow: 0 0 36px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: box-shadow .2s linear,opacity .2s linear;
+}
+.tensorsite-card::before {
+  background: #fff;
+  border-radius: 10px;
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity .2s linear;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.tensorsite-card .tensorsite-content {
+  border-radius: 0 0 10px 10px;
+  position: static;
+}
+
+.tensorsite-content {
+  z-index: 9999;
+  border-radius: 10px;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 16px 20px;
+  position: relative;
+  overflow: auto;
+}
+
+.tensorsite-card:hover::before, .active::before {
+  opacity: 0;
+}
+.tensorsite-card:hover, .active {
+  box-shadow: 0 0 64px rgb(0 0 0 / 22%);
+  cursor: pointer;
+}
+
+.tensorsite-card:hover, .active  .tensorsite-content::before {
+  opacity: 1;
+  transition: opacity .2s linear;
+}
+.tensorsite-card:hover, .active  .tensorsite-content {
+  color: white;
+}
+
+.custom-blue {
+  background: "#3474e0";
+}
+
+.custom-grey {
+  background: "#455064";
+}
+
+
+.custom-orange {
+  background: "#ff6f00";
+}
