@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import React, {memo, useEffect} from 'react'
 
 import {Handle, Position, useStoreState} from 'react-flow-renderer'
 import {Paper, Box, Typography, makeStyles, Theme, createStyles, Grid} from "@material-ui/core";
@@ -46,15 +46,24 @@ const useStyles = makeStyles((theme: Theme) =>
 // @ts-ignore
 function TaskRunsPanel({task}) {
   const classes = useTaskRunsStyles()
-  const {loading, error, data} = useQuery(GET_TASKRUNS_STATE_ONLY, {
+  // polling wont's top even after unmounted. https://github.com/apollographql/apollo-client/issues/6391
+  const {loading, error, data, stopPolling, startPolling} = useQuery(GET_TASKRUNS_STATE_ONLY, {
     variables: {
       input: {
         flowrun_id: [task.flowrun_id],
         task_id: [task.id]
       },
     },
-    pollInterval: 2000,
+    // pollInterval: 2000,
   });
+  useEffect(() => {
+    startPolling(2000);
+    return () => {
+      stopPolling()
+    }
+  }, []);
+  
+  
   
   let stateCounts = [];
   if (loading || error) {
@@ -137,4 +146,4 @@ function TaskNode(props) {
   )
 }
 
-export default memo(TaskNode);
+export default TaskNode;

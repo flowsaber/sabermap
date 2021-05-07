@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
 import {createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import {useQuery} from '@apollo/client'
@@ -69,14 +69,21 @@ function Flows({flows}) {
   const [pathList, setPathList] = useState(defaultPathList)
   // @ts-ignore
   const flow_ids = flow ? [flow.id] : []
-  const {loading, error, data} = useQuery(GET_FLOWRUNS, {
+  const {loading, error, data, startPolling, stopPolling} = useQuery(GET_FLOWRUNS, {
     variables: {
       input: {
         flow_id: flow_ids
       },
     },
-    pollInterval: 4000,
+    // pollInterval: 4000,
   });
+  
+  useEffect(() => {
+    startPolling(4000);
+    return () => {
+      stopPolling()
+    }
+  }, []);
   
   const onPathLickClickHandler = (label: string) => {
     // const clickedPath = pathList.find((path) => path.label === label)
