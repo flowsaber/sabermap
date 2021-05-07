@@ -75,7 +75,7 @@ function Flows({flows}) {
         flow_id: flow_ids
       },
     },
-    // pollInterval: 3000,
+    pollInterval: 4000,
   });
   
   const onPathLickClickHandler = (label: string) => {
