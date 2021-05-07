@@ -1,7 +1,7 @@
-import React, {memo, useEffect} from 'react'
+import React, {useEffect} from 'react'
 
-import {Handle, Position, useStoreState} from 'react-flow-renderer'
-import {Paper, Box, Typography, makeStyles, Theme, createStyles, Grid} from "@material-ui/core";
+import {useStoreState} from 'react-flow-renderer'
+import {Box, createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import NodeWrapper from "./nodewrapper"
 import {useQuery} from "@apollo/client";
 import {GET_TASKRUNS_STATE_ONLY} from "../graphql";
@@ -9,13 +9,12 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 
-
 const useTaskRunsStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       padding: "5px",
       width: "100%",
-      overflow: "hidden" ,
+      overflow: "hidden",
       flexWrap: "nowrap",
       justifyContent: "start",
       height: "80px", // any better way?
@@ -42,7 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-
 // @ts-ignore
 function TaskRunsPanel({task}) {
   const classes = useTaskRunsStyles()
@@ -64,12 +62,10 @@ function TaskRunsPanel({task}) {
   }, []);
   
   
-  
   let stateCounts = [];
   if (loading || error) {
     stateCounts = Array(5).fill(null)
-  }
-  else {
+  } else {
     let stateMap = new Map();
     for (let taskrun of data.get_taskruns) {
       const state = taskrun.state.state_type
@@ -91,29 +87,29 @@ function TaskRunsPanel({task}) {
   return (
     <Grid container direction={"column"} className={classes.root}>
       {stateCounts.map((runState: any, index: number) => (
-        runState ? (
-          <Box key={runState.state} width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
-            <Box>
-              <Typography variant={"subtitle2"}>{ runState.count }</Typography>
+          runState ? (
+            <Box key={runState.state} width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+              <Box>
+                <Typography variant={"subtitle2"}>{runState.count}</Typography>
+              </Box>
+              <Box style={{marginLeft: 5, marginRight: 5}}>
+                <LinearProgress style={{height: 8, width: 15}}/>
+              </Box>
+              <Box>
+                <Typography variant={"subtitle2"}>{runState.state}</Typography>
+              </Box>
             </Box>
-            <Box style={{marginLeft: 5, marginRight: 5}}>
-              <LinearProgress style={{height: 8, width: 15}}/>
+          ) : (
+            <Box key={index} width={"100%"} display={"flex"} alignItems={"center"}>
+              <Skeleton variant="circle" height={"9px"} width={"9px"}/>
+              <Skeleton variant="text" width={"100%"}/>
             </Box>
-            <Box>
-              <Typography variant={"subtitle2"}>{ runState.state }</Typography>
-            </Box>
-          </Box>
-        ) : (
-          <Box key={index} width={"100%"} display={"flex"} alignItems={"center"}>
-            <Skeleton variant="circle" height={"9px"} width={"9px"}/>
-            <Skeleton variant="text" width={"100%"}/>
-          </Box>
-        )
+          )
         )
       )}
     </Grid>
   )
-};
+}
 
 // @ts-ignore
 function TaskNode(props) {
@@ -137,8 +133,8 @@ function TaskNode(props) {
         <Box>
           {
             (showContent && data.flowrun_id) ?
-            <TaskRunsPanel task={task}/>
-            : ""
+              <TaskRunsPanel task={task}/>
+              : ""
           }
         </Box>
       </Box>

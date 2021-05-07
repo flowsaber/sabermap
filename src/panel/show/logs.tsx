@@ -4,18 +4,11 @@ import {useQuery} from '@apollo/client'
 import {GET_RUNLOGS} from "../graphql";
 
 
-
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import {
-  DataGrid,
-  GridToolbar,
-  GridColDef,
-  GridCellParams,
-  isOverflown,
-} from '@material-ui/data-grid';
+import {createStyles, makeStyles} from '@material-ui/core/styles';
+import {DataGrid, GridCellParams, GridColDef, GridToolbar, isOverflown,} from '@material-ui/data-grid';
 
 interface GridCellExpandProps {
   value: string;
@@ -43,7 +36,7 @@ const useStyles = makeStyles(() =>
 const GridCellExpand = React.memo(function GridCellExpand(
   props: GridCellExpandProps,
 ) {
-  const { width, value } = props;
+  const {width, value} = props;
   const wrapper = React.useRef<HTMLDivElement | null>(null);
   const cellDiv = React.useRef(null);
   const cellValue = React.useRef(null);
@@ -106,13 +99,13 @@ const GridCellExpand = React.memo(function GridCellExpand(
         <Popper
           open={showFullCell && anchorEl !== null}
           anchorEl={anchorEl}
-          style={{ width, marginLeft: -17 }}
+          style={{width, marginLeft: -17}}
         >
           <Paper
             elevation={1}
-            style={{ minHeight: wrapper.current!.offsetHeight - 3 }}
+            style={{minHeight: wrapper.current!.offsetHeight - 3}}
           >
-            <Typography variant="body2" style={{ padding: 8, overflowWrap: "anywhere"}}>
+            <Typography variant="body2" style={{padding: 8, overflowWrap: "anywhere"}}>
               {value}
             </Typography>
           </Paper>
@@ -130,7 +123,6 @@ function renderCellExpand(params: GridCellParams) {
     />
   );
 }
-
 
 
 const columns: GridColDef[] = [

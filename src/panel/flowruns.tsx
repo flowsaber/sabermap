@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
-import {createStyles, Grid, Box, makeStyles, Theme, Typography} from "@material-ui/core";
-import {useQuery} from '@apollo/client'
+import {Box, createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import FlowRun from "./flowrun";
-import {GET_FLOWRUNS} from "./graphql";
 import SplitPane from "react-split-pane";
 import ShowPanel from "./show/show";
 
@@ -12,9 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
     flowrunsPanel: {
       height: "100%"
     },
-    panel: {
-    
-    },
+    panel: {},
     grid: {
       flex: "1 1 auto",
       overflowY: "auto"
@@ -66,15 +62,15 @@ function FlowRuns({flow, flowruns}) {
   )
   
   return (
-  <SplitPane split="vertical" defaultSize="15vw" maxSize={300} minSize={100}>
-    <Box height="100%">
-      {FlowRunsPanel}
-    </Box>
-    <Box height="100%">
-      <ShowPanel flow={flow} flowrun={flowrun}/>
-    </Box>
-  </SplitPane>
-)
+    <SplitPane split="vertical" defaultSize="15vw" maxSize={300} minSize={100}>
+      <Box height="100%">
+        {FlowRunsPanel}
+      </Box>
+      <Box height="100%">
+        <ShowPanel flow={flow} flowrun={flowrun}/>
+      </Box>
+    </SplitPane>
+  )
 }
 
 export default FlowRuns

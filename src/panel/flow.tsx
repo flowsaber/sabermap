@@ -1,12 +1,11 @@
 import React from "react";
 import "../style/App.css"
-import {createStyles, makeStyles, Paper, Theme} from "@material-ui/core";
+import {createStyles, makeStyles, Theme} from "@material-ui/core";
 import Box from "@material-ui/core/Box"
 
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-  })
+  createStyles({})
 )
 
 
@@ -19,7 +18,7 @@ function Flow({flow, setFlow, activeFlow}) {
       <Box className="tensorsite-content" height="100%" onClick={() => setFlow(flow)}>
         {flow.name}
       </Box>
-      
+    
     </Box>
   )
 }

@@ -4,12 +4,12 @@ import Main from "./panel/main"
 import Box from "@material-ui/core/Box";
 import Header from "./panel/header";
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
-import { ThemeProvider } from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
 import theme from "./panel/theme"
 
 
 function App() {
-  const [server, setServer ]= useState("https://flowsaber.herokuapp.com/graphql/")
+  const [server, setServer] = useState("https://flowsaber.herokuapp.com/graphql/")
   const client = new ApolloClient({
     uri: server,
     cache: new InMemoryCache()

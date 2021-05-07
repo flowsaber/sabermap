@@ -3,7 +3,6 @@ import {Handle, Position} from "react-flow-renderer";
 import React, {memo} from "react";
 
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -37,10 +36,10 @@ function ChannelNode({id, data}) {
         id={id}
         style={{background: "blue"}}
       />
-
+    
     </Box>
   )
-};
+}
 
 
 export default memo(ChannelNode);

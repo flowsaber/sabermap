@@ -2,13 +2,12 @@ import React, {memo} from "react";
 
 import {Box} from "@material-ui/core"
 import {Handle, Position} from "react-flow-renderer";
-import {layout} from "dagre";
 
 // TODO NodeWrapper is aimed for automatically layout input and output handles
 // TODO Now only rectangular are supported
 
 
-function getHandleLayoutStyles(width: number, height: number, num: number, isLeft: boolean)  {
+function getHandleLayoutStyles(width: number, height: number, num: number, isLeft: boolean) {
   if (num <= 0) return []
   num += 1
   const sep = height / num;
@@ -62,7 +61,8 @@ function NodeWrapper(props) {
   );
   
   return (
-    <Box className={className} height={height} width={width} style={{borderRadius: isCircle ? "50%" : "1%", padding: 0}}>
+    <Box className={className} height={height} width={width}
+         style={{borderRadius: isCircle ? "50%" : "1%", padding: 0}}>
       {InputHandles}
       {children}
       {OutputHandles}

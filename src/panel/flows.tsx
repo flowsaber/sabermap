@@ -3,11 +3,9 @@ import Box from "@material-ui/core/Box";
 import {createStyles, Grid, makeStyles, Theme, Typography} from "@material-ui/core";
 import {useQuery} from '@apollo/client'
 import Flow from "./flow";
-import {GET_FLOWRUNS, GET_FLOWS} from "./graphql";
+import {GET_FLOWRUNS} from "./graphql";
 import "../style/App.css"
 import SplitPane from "react-split-pane";
-import FlowRunsPanel from "./flowruns";
-import ShowPanel from "./show/show";
 import FlowRuns from "./flowruns";
 import Path from "./path";
 import HomeIcon from "@material-ui/icons/Home";
@@ -49,9 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
     flowsPanel: {
       height: "100%"
     },
-    panel: {
-    
-    },
+    panel: {},
     grid: {
       flex: "1 1 auto",
       overflowY: "auto"
@@ -108,7 +104,7 @@ function Flows({flows}) {
                 <Grid item key={curFlow.id}>
                   <Flow flow={curFlow} activeFlow={flow} setFlow={setFlow}/>
                 </Grid>
-                ) : (
+              ) : (
                 <Grid item key={index}>
                   <Box height="100px">
                     <Skeleton variant="text" width={"40%"}/>
@@ -125,23 +121,23 @@ function Flows({flows}) {
   )
   
   return (
-  <Box height="100%">
-    <Box height="8vh">
-      <Path pathList={pathList} onClick={onPathLickClickHandler}/>
-    </Box>
-    <Box height="80vh">
-      <SplitPane split="vertical" defaultSize="15vw" maxSize={300} minSize={100} style={{height: "80vh"}}>
-        <Box height="100%">
-          {FlowsPanel}
-        </Box>
-        <Box height="100%">
-          <FlowRuns flow={flow} flowruns={(loading || error) ? DUMMY_FLOWRUNS : data.get_flowruns}/>
-        </Box>
-      </SplitPane>
+    <Box height="100%">
+      <Box height="8vh">
+        <Path pathList={pathList} onClick={onPathLickClickHandler}/>
+      </Box>
+      <Box height="80vh">
+        <SplitPane split="vertical" defaultSize="15vw" maxSize={300} minSize={100} style={{height: "80vh"}}>
+          <Box height="100%">
+            {FlowsPanel}
+          </Box>
+          <Box height="100%">
+            <FlowRuns flow={flow} flowruns={(loading || error) ? DUMMY_FLOWRUNS : data.get_flowruns}/>
+          </Box>
+        </SplitPane>
       
+      </Box>
     </Box>
-  </Box>
-)
+  )
 }
 
 export default Flows;

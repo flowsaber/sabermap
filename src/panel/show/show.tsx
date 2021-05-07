@@ -1,13 +1,12 @@
 import React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import {makeStyles, Theme} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Graph from "./graph";
 import LogsPanel from "./logs"
-import TasksPanel from "./tasks"
+import Tasks from "./tasks"
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -16,7 +15,7 @@ interface TabPanelProps {
 }
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const {children, value, index, ...other} = props;
   
   return (
     <div
@@ -34,7 +33,7 @@ function TabPanel(props: TabPanelProps) {
       )}
     </div>
   );
-};
+}
 
 function a11yProps(index: any) {
   return {
@@ -71,10 +70,10 @@ export default function ShowPanel({flow, flowrun}) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Graph  flow={flow} flowrun={flowrun}/>
+        <Graph flow={flow} flowrun={flowrun}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <TasksPanel flow={flow} flowrun={flowrun}/>
+        <Tasks flow={flow} flowrun={flowrun}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <LogsPanel flow={flow} flowrun={flowrun}/>

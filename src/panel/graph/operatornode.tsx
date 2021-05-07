@@ -1,7 +1,5 @@
 import React, {memo} from "react"
-import {createStyles, makeStyles, Theme, Typography} from "@material-ui/core";
-import {Box} from "@material-ui/core"
-import {Handle, Position} from "react-flow-renderer"
+import {Box, createStyles, makeStyles, Theme, Typography} from "@material-ui/core";
 import NodeWrapper from "./nodewrapper"
 
 
@@ -26,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function OperatorNode(props) {
   const classes = useStyles()
   
-  const {data, isCircle=false} = props;
+  const {data, isCircle = false} = props;
   const {width, height} = data;
   const task = data;
   

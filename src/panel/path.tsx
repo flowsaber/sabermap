@@ -21,7 +21,7 @@ const StyledBreadcrumb = withStyles((theme) => ({
 }))(Chip) as typeof Chip;
 
 
-function Path(props: { pathList: any, onClick: any}) {
+function Path(props: { pathList: any, onClick: any }) {
   const {pathList, onClick} = props
   
   

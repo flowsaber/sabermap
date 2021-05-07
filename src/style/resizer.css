@@ -3,15 +3,18 @@
     cursor: col-resize;
     height: 100%;
 }
+
 .Resizer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .Resizer.vertical:before {
     height: 56px;
     width: 4px;
 }
+
 .Resizer:before {
     content: "";
     display: block;

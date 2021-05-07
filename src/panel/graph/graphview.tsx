@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const connectionLineStyle = { stroke: '#fff' };
+const connectionLineStyle = {stroke: '#fff'};
 const nodeTypes = {
   taskNode: TaskNode,
   operatorNode: OperatorNode,
@@ -66,7 +66,7 @@ function resolve_flow(flow: any, flowrun: any) {
     let output_task_input = task_input_map.get(task_id)
     const output_task_input_id = `${channel_id}-${output_task_input.length}`
     output_task_input.push(output_task_input_id)
-  
+    
     // channel-task
     if (!ch_task_map.get(channel_id)) {
       ch_task_map.set(channel_id, channel_id);
@@ -92,7 +92,7 @@ function resolve_flow(flow: any, flowrun: any) {
       targetHandle: output_task_input_id,
       animated: true,
     })
-      
+    
   })
   const nodes = tasks.map((task: any) => {
     const name = task.context.task_config.name;
@@ -103,7 +103,7 @@ function resolve_flow(flow: any, flowrun: any) {
       data: {
         ...task,
         input: task_input_map.get(task.id) || [],
-        width: is_operator ? 40: 80,
+        width: is_operator ? 40 : 80,
         height: is_operator ? 40 : 120,
         flowrun_id: (is_operator || !flowrun) ? null : flowrun.id,
       },
@@ -114,13 +114,10 @@ function resolve_flow(flow: any, flowrun: any) {
     }
   })
   
-  const elements =  [...nodes, ...input_channels, ...edges]
+  const elements = [...nodes, ...input_channels, ...edges]
   // console.log(elements)
   return elements
 }
-
-
-
 
 
 const dagreGraph = new graphlib.Graph();
@@ -134,12 +131,12 @@ dagreGraph.setDefaultEdgeLabel(() => ({}));
 // @ts-ignore
 const getLayoutedElements = (elements, direction = 'TB') => {
   const isHorizontal = direction === 'LR';
-  dagreGraph.setGraph({ rankdir: direction });
+  dagreGraph.setGraph({rankdir: direction});
   
   elements.forEach((el: any) => {
     if (isNode(el)) {
       // @ts-ignore
-      dagreGraph.setNode(el.id, { width: el.data.width, height: el.data.height });
+      dagreGraph.setNode(el.id, {width: el.data.width, height: el.data.height});
     } else {
       dagreGraph.setEdge(el.source, el.target);
     }
@@ -169,7 +166,6 @@ const getLayoutedElements = (elements, direction = 'TB') => {
 };
 
 
-
 // @ts-ignore
 function GraphView({flow, flowrun}) {
   const classes = useStyles()
@@ -196,7 +192,7 @@ function GraphView({flow, flowrun}) {
     (params) => {
       return
     }
-      , []
+    , []
   )
   
   const onLoad = useCallback(
@@ -232,22 +228,22 @@ function GraphView({flow, flowrun}) {
           defaultZoom={1}
           onlyRenderVisibleElements={true}
         >
-  
+          
           <MiniMap
             // @ts-ignore
-            nodeStrokeColor={(n:any) => {
+            nodeStrokeColor={(n: any) => {
               if (n.type === 'taskNode') return '#3474e0';
               if (n.type === 'operatorNode') return '#ff6f00';
               if (n.type === 'channelNode') return 'red';
               return '#fff';
             }}
             // @ts-ignore
-            nodeColor={(n:any) => {
+            nodeColor={(n: any) => {
               if (n.type === 'taskNode') return '#3474e0';
               if (n.type === 'operatorNode') return '#ff6f00';
               if (n.type === 'channelNode') return '#455064';
               return '#fff';
-          }}
+            }}
           >
           </MiniMap>
           <Controls>
@@ -259,7 +255,7 @@ function GraphView({flow, flowrun}) {
             </ControlButton>
           </Controls>
         </ReactFlow>
-
+      
       </ReactFlowProvider>
     </Box>
   )
