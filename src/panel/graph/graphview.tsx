@@ -230,6 +230,7 @@ function GraphView({flow, flowrun}) {
           snapToGrid={true}
           snapGrid={[2, 2]}
           defaultZoom={1}
+          onlyRenderVisibleElements={true}
         >
   
           <MiniMap

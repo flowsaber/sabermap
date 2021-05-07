@@ -36,7 +36,7 @@ function Main() {
     variables: {
       input: {},
     },
-    // pollInterval: 5000,
+    pollInterval: 5000,
   });
   
   
