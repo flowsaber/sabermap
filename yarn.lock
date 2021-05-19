@@ -1499,10 +1499,10 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
-"@material-ui/data-grid@^4.0.0-alpha.27":
-  version "4.0.0-alpha.27"
-  resolved "https://registry.nlark.com/@material-ui/data-grid/download/@material-ui/data-grid-4.0.0-alpha.27.tgz#8be77550e967700215f2ba3f95f0d528ee2241f7"
-  integrity sha1-i+d1UOlncAIV8ro/lfDVKO4iQfc=
+"@material-ui/data-grid@^4.0.0-alpha.28":
+  version "4.0.0-alpha.28"
+  resolved "https://registry.yarnpkg.com/@material-ui/data-grid/-/data-grid-4.0.0-alpha.28.tgz#a82f0e382c8abffa7e7d50d31a4706f8c30215e9"
+  integrity sha512-a6xZj0pMIX2uGsyMMZP/kZISo7MKS43+hHApoHeije82yMAPKhTXV7/SCuAFoF9qye14XeSclwmwOkN2AJRAPg==
   dependencies:
     "@material-ui/utils" "^5.0.0-alpha.14"
     prop-types "^15.7.2"
@@ -10429,7 +10429,7 @@ sabermap@./:
   dependencies:
     "@apollo/client" "^3.3.16"
     "@material-ui/core" "^4.11.4"
-    "@material-ui/data-grid" "^4.0.0-alpha.27"
+    "@material-ui/data-grid" "^4.0.0-alpha.28"
     "@material-ui/icons" "^4.11.2"
     "@material-ui/lab" "^4.0.0-alpha.58"
     "@testing-library/jest-dom" "^5.11.4"
@@ -10450,6 +10450,7 @@ sabermap@./:
     react-flow-renderer "^9.5.4"
     react-scripts "4.0.3"
     react-split-pane "^0.1.92"
+    sabermap "./"
     typescript "^4.1.2"
     web-vitals "^1.0.1"
 
