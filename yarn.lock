@@ -2216,10 +2216,10 @@
   resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha1-FZJUFOCtLNdlv+9YhC9+JqesyyQ=
 
-"@types/react-dom@^17.0.0":
-  version "17.0.3"
-  resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-17.0.3.tgz#7fdf37b8af9d6d40127137865bb3fff8871d7ee1"
-  integrity sha1-f983uK+dbUAScTeGW7P/+IcdfuE=
+"@types/react-dom@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.5.tgz#df44eed5b8d9e0b13bb0cd38e0ea6572a1231227"
+  integrity sha512-ikqukEhH4H9gr4iJCmQVNzTB307kROe3XFfHAOTxOXPOw7lAoEXnM5KWTkzeANGL5Ce6ABfiMl/zJBYNi7ObmQ==
   dependencies:
     "@types/react" "*"
 
@@ -10438,7 +10438,7 @@ sabermap@./:
     "@types/jest" "^26.0.15"
     "@types/node" "^12.0.0"
     "@types/react" "^17.0.0"
-    "@types/react-dom" "^17.0.0"
+    "@types/react-dom" "^17.0.5"
     ajv "^8.2.0"
     brace "^0.11.1"
     dagre "^0.8.5"
@@ -10450,6 +10450,7 @@ sabermap@./:
     react-flow-renderer "^9.5.4"
     react-scripts "4.0.3"
     react-split-pane "^0.1.92"
+    sabermap "./"
     typescript "^4.1.2"
     web-vitals "^1.0.1"
 
